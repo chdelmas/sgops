@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title> </title>
+    </h:head>
+    <h:body>
+       <ui:composition>
+           <h:form id="formLeftMenu" >
+              <p:growl id="messages" showDetail="true" life="3000" sticky="true" />    
+    <p:menu  > 
+       <p:submenu label="Lister"  >  
+           <p:menuitem value="Ajouter" action="#" icon="ui-icon ui-icon-arrowrefresh-1-w" />  
+           <p:menuitem value="Lister OPS" action="#{menuHandle.opsManager()}" update="messages" icon="ui-icon ui-icon-arrowrefresh-1-w"/>
+     </p:submenu>
+        
+        
+       <p:submenu label="Recherche">  
+       <p:menuitem value="Par Date" actionListener="#" update=":formLeftMenu:messages" icon="ui-icon ui-icon-disk"/> 
+       <p:menuitem value="Par Type" actionListener="#" update=":formLeftMenu:messages" icon="ui-icon ui-icon-disk"/>  
+       <p:menuitem value="I" actionListener="#" update=":formLeftMenu:messages" icon="ui-icon ui-icon-disk"/>  
+     
+       </p:submenu>  
+        
+       <p:submenu label="Statistique sur">  
+       <p:menuitem value="Les ONG" actionListener="#" update=":formLeftMenu:messages" icon="ui-icon ui-icon-disk"/> 
+       <p:menuitem value="ONG Actives" actionListener="#" update=":formLeftMenu:messages" icon="ui-icon ui-icon-disk"/>  
+       <p:menuitem value="Permis Expires" actionListener="#" update=":formLeftMenu:messages" icon="ui-icon ui-icon-disk"/>  
+     
+       </p:submenu> 
+       
+       <p:submenu label="Administration"> 
+            <p:menuitem value="Admin" actionListener="#" update=":formLeftMenu:messages" icon="ui-icon ui-icon-arrowrefresh-1-w"/>  
+            <p:menuitem value="Send Mail" actionListener="#" update=":formLeftMenu:messages" icon="ui-icon ui-icon-arrowrefresh-1-w"/>  
+        </p:submenu>
+        
+      </p:menu>  
+  </h:form>
+        </ui:composition>
+    </h:body>
+</html>
+

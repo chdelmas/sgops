@@ -1,0 +1,118 @@
+/* 
+    Document   : app
+    Created on : Sep 21, 2012, 4:57:02 PM
+    Author     : chdelmas
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.bgform {
+  background-image:url('resources/images/bg/bglog.png');
+  background-repeat: no-repeat;
+  
+  padding: 20px;
+  top: 50%;
+left: 50%;
+width: 400px;
+height: 500px;
+margin-top: 5%;
+margin-left: 40%;
+             
+           }
+.bglogin{
+                        background-repeat: no-repeat;
+                                   /*  padding-top: 25px;*/
+                                     background-repeat: no-repeat;
+                                     background-position: center;
+                                     margin-top: 95px;
+                                    top: 50%;
+
+  background-image:url('resources/images/splash.png');
+
+             } 
+
+ 
+.centered {
+position: absolute;
+top: 50%;
+left: 50%;
+margin-top: -75px;
+margin-left: -150px;
+}
+
+#login2 {
+background-image:url('resources/common/images/dinepa')  !important;
+}
+
+#top {
+    position: relative;
+    background-color: #c2dfef;
+    color: white;
+    padding: 5px;
+    margin: 0px 0px 10px 0px;
+}
+.ui-layout-unit-content{background-image:url('#{request.contextPath}images/bluebackgroundsmall.jpg');}
+.loginbng{background-image:url('#{request.contextPath}images/loginbng.png');}
+ 
+body
+{
+    /*
+# background-image:url('resources/common/images/bluebackgroundsmall.jpg');
+*/
+}
+/* Buttons */
+.login {background-image: url("../images/buttons/login.png") !important; }
+.logout {background-image: url("../images/buttons/logout.png") !important;}
+.save {background-image: url("../images/buttons/save.png") !important;}
+.zoeklijst {background-image: url("../images/buttons/zoeklijst.png") !important;}
+.dossier_add {background-image: url("../images/buttons/dossier_add.png") !important;}
+.dossier_del {background-image: url("../images/buttons/dossier_del.png") !important;}
+.probleem_add {background-image: url("../images/buttons/probleem_add.png") !important;}
+.probleem_del {background-image: url("../images/buttons/probleem_del.png") !important;}
+.actie_add {background-image: url("../images/buttons/actie_add.png") !important;}
+.actie_del {background-image: url("../images/buttons/actie_del.png") !important;}
+#login h4{margin:0px;padding:0px;}
+.crud-head{margin-bottom:20px;}
+.crud-new{background-image: url('/resources/img/add.png');
+         padding-left:15px;
+         background-repeat: no-repeat;
+}
+.crud-list{background-image: url('/resources/img/list.png');
+          padding-left:15px;
+          background-repeat: no-repeat;
+}
+.crud-list-pageof{margin-right: 20px;}
+.image-previous{background-image: url('/resources/img/previous.png');
+               padding-left:15px;
+               background-repeat: no-repeat;
+}
+.image-next{background-image: url('/resources/img/next.png');
+           padding-right:15px;
+           background-repeat: no-repeat;
+           background-position: right;}
+#crud-list-children{margin-top:20px;}
+#content-title{text-decoration:underline;font-weight: bold;margin-bottom: 35px;}
+.crud-button-bottom{margin-top:20px;}
+.image-edit{background-image: url('/resources/img/edit.png');
+           padding-left:15px;background-repeat: no-repeat;}
+.image-delete{background-image: url('/resources/img/delete.png');
+             padding-left:15px;background-repeat: no-repeat;}
+.image-save{background-image: url('/resources/img/save.png');
+           padding-left:15px;background-repeat: no-repeat;}
+.list-crud-action{border: 0px;margin-left:3px;margin-right:3px;}
+#login{width:270px;padding:20px;}
+
+
+
+
+
+.save{ 
+background-image: url("images/Save.png") !important; 
+}
+.ui-icon { 
+    width: 16px; 
+    height: 16px; 
+    background-image: url("#{resource['images:Save.png']}"); 
+}
+
+

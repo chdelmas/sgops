@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Formulaire de régistre d'utilisateur</title>
+    </h:head>
+    <h:body>
+        <ui:composition> 
+           <h:form id="form" style=" width: 100%; height:400px;"> 
+               <p:growl id="messages" showDetail="true" life="3000"  />  
+               <p:tabView id="tabView"  style="font-size: small;" activeIndex="#{utilisateurBean.tabActiveIndex}">
+                 <p:tab  title="Liste utilisateurs">
+                  <p:dataTable id="tbl" var="utilisateur" value="#{utilisateurBean.listUtilisateurs}"
+                               rowKey="#{utilisateur.username}" 
+                       paginator="true" 
+                       rendered="true"
+                       selectionMode="single"
+                       style="font-size: small" 
+                        rows="8"
+                         emptyMessage="Donnée non disponible">
+                     <p:ajax event="rowSelect" listener="#{utilisateurBean.onRowSelect}" update=":form"/>
+         
+                     <p:column headerText=" Username" sortBy="#{utilisateur.username}"
+                          style="width: auto;">
+           <f:facet name="header">
+			<h:outputText value="Username" />
+           </f:facet>
+                         <h:outputText value="#{utilisateur.username}" />
+        </p:column>
+                  
+            
+        
+         <p:column headerText="Courriel" style="width: auto;">
+              <f:facet name="header">
+			<h:outputText value="Courriel" />
+           </f:facet>
+             <h:outputText value="#{utilisateur.email}" />
+        </p:column>
+        
+         <p:column headerText="Organisme" style="width: auto;">
+              <f:facet name="header">
+			<h:outputText value="Organisme" />
+           </f:facet>
+             <h:outputText id="organismeid" value="#{utilisateur.organismeId}" >
+             <f:converter converterId="Organisme"     />
+             </h:outputText>
+        </p:column>
+     </p:dataTable>
+         <h:panelGrid columns="2">
+	<p:panel header="Export All Data">
+		<h:commandLink>
+			<p:graphicImage value="/images/excel.png" />
+			<p:dataExporter type="xls" target="tbl" fileName="utilisateurs" />
+		</h:commandLink>
+
+		<h:commandLink>
+			<p:graphicImage value="/images/pdf.png" />
+			<p:dataExporter type="pdf" target="tbl" fileName="utilisateurs"/>
+		</h:commandLink>
+		
+		<h:commandLink>
+			<p:graphicImage value="/images/csv.png" />
+			<p:dataExporter type="csv" target="tbl" fileName="utilisateurs" />
+		</h:commandLink>
+		
+		<h:commandLink>
+			<p:graphicImage value="/images/xml.png" />
+			<p:dataExporter type="xml" target="tbl" fileName="utilisateurs" />
+		</h:commandLink>
+	</p:panel>
+	
+	<p:panel header="Export Page Data">
+		<h:commandLink>
+			<p:graphicImage value="/images/excel.png" />
+			<p:dataExporter type="xls" target="tbl" fileName="utilisateurs" pageOnly="true"/>
+		</h:commandLink>
+
+		<h:commandLink>
+			<p:graphicImage value="/images/pdf.png" />
+			<p:dataExporter type="pdf" target="tbl" fileName="utilisateurs" pageOnly="true"/>
+		</h:commandLink>
+		
+		<h:commandLink>
+			<p:graphicImage value="/images/csv.png" />
+			<p:dataExporter type="csv" target="tbl" fileName="utilisateurs" pageOnly="true"/>
+		</h:commandLink>
+		
+		<h:commandLink>
+			<p:graphicImage value="/images/xml.png" />
+			<p:dataExporter type="xml" target="tbl" fileName="utilisateurs" pageOnly="true"/>
+		</h:commandLink>
+	</p:panel>
+    </h:panelGrid>   
+                   </p:tab>
+                   
+                  
+	       <p:tab id="tab1" title="Edition / Saisie">
+		 <p:panel id="reg" header="Formulaire de régistre d'utilisateur" style=" margin: auto;font-size: small;  " >
+                      <h:panelGrid columns="3" width="65%"  >
+                        <h:outputLabel for="username" value="Utilisateur :*" />
+                        <p:inputText  value="#{utilisateurBean.selectedUtilisateur.username}"  id="username"    style=" width: 200px;"  />
+                        <h:message for="username"/>
+                <h:outputLabel for="password" style="width: 20px;" value="Mot de passe} : * " />
+                <h:inputSecret value="#{utilisateurBean.selectedUtilisateur.password}"  binding="#{passwordComponent}" id="password"  style=" width:200px;" />
+                <h:message for="password"/>
+                <h:outputLabel for="confirmPass" value="Confirmer Mot de passe: * " />
+                <h:inputSecret value="#{utilisateurBean.selectedUtilisateur.confirmPassword}"    required="#{not empty passwordComponent.value}" id="confirmPass"   style=" width: 200px;"  >
+                <f:validator validatorId="confirmPasswordValidator" />
+                   <f:attribute name="passwordComponent" value="#{passwordComponent}" />
+                </h:inputSecret>
+                <h:message for="confirmPass"/>
+                <h:outputLabel for="courriel" value="Courriel : " />
+                <p:inputText  value="#{utilisateurBean.selectedUtilisateur.email}"  id="courriel"   style=" width: 250px;" validator="#{emailValidator.validate}"  />
+                <h:message for="courriel"/>
+                 <h:outputLabel for="organisme" value="Organisme : *" />
+                 <p:selectOneMenu id="organismeid" value="#{utilisateurBean.selectedUtilisateur.organismeId}"  required="true"  style=" width: 250px;"   >
+                    <f:selectItems value="#{organismeBean.organismeItems}" />
+                    <f:ajax render="@this" />
+                </p:selectOneMenu>
+           </h:panelGrid>
+                       
+                 <p:panel id="chk" header="Privilèges" style=" text-align: left;font-size: small ">
+                    <h:panelGrid columns="4"  width="60%">
+                <h:outputLabel for="consultation">Consultation</h:outputLabel>
+                <h:selectBooleanCheckbox id="consultation"  value="#{utilisateurBean.consultation}"  />     
+                <h:outputLabel for="analyse">Analyse</h:outputLabel>
+                <h:selectBooleanCheckbox id="analyse"  value="#{utilisateurBean.analyse}" />     
+                <h:outputLabel for="saisie">Saisie</h:outputLabel>
+                <h:selectBooleanCheckbox id="saisie"  value="#{utilisateurBean.saisie}"  />     
+                 <h:outputLabel for="parametre">Paramètre</h:outputLabel>
+                 <h:selectBooleanCheckbox id="parametre"  value="#{utilisateurBean.parametres}"  />    
+                 <h:outputLabel for="option">Animateur</h:outputLabel>
+                 <h:selectBooleanCheckbox id="Option"  value="#{utilisateurBean.animateur}"  /> 
+                <h:outputLabel for="active">Active</h:outputLabel>
+                <h:selectBooleanCheckbox id="active"  value="#{utilisateurBean.active}"  />     
+                </h:panelGrid>
+                </p:panel>
+                         <table>
+                         <th>
+                             <p:commandButton value="reset"  label="Reset" icon="ui-icon-reset" type="reset"  immediate="true" update="@form" />
+                          </th>   
+                        <th> 
+                            <p:commandButton onclick="confirmation.show()" value="Enregistrer" icon="ui-icon-check"   update=":form:messages"  />
+                         </th>
+                    </table>
+                  <p:confirmDialog id="confirmDialog"  
+                                   message="Souhaitez-vous sauvegarder ?"
+				  header="Initialisation du processus de Sauvegarde" severity="alert" widgetVar="confirmation">
+                     <h:form id="choix">
+		                      <p:commandButton id="confirm" value="Oui"  update=":form:messages" oncomplete="confirmation.hide()"
+                                          actionListener="#{utilisateurBean.update}" process="@this"  />
+		                 <p:commandButton id="decline" value="Non" onclick="confirmation.hide()" type="button" /> 
+                     </h:form>
+	</p:confirmDialog>  
+   </p:panel>         
+                     
+     
+	</p:tab>
+                   
+                   <p:tab id="userassign" title="Assignation d'animateur au bureau">
+                       
+                       
+                       
+                       
+                       
+                   </p:tab>
+       
+      </p:tabView>      
+                        
+                  
+             </h:form>    
+             
+        </ui:composition>
+    </h:body>
+</html>
+

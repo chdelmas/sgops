@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="username" type="String" required="true" />
+        <cc:attribute name="password" type="String" required="true" />
+        
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+            
+              <p:commandLink id="loginLink" actionListener="#" title="Login" >
+                  <p:graphicImage library="common" name="/images/login.png" />
+              </p:commandLink>
+                <h:panelGrid columns="2" cellpadding="5" styleClass="loginbng">
+                <h:outputLabel for="username" value="Username: *" />
+                <p:inputText  value="#{loginBean.username}" style=" width: 150px;  "
+                             id="username" required="true" label="username" />
+                <h:outputLabel for="password" value="Password: * " />
+                <h:inputSecret value="#{loginBean.password}" style=" width: 150px; "
+                               id="password" required="true" label="password" />
+                <f:facet name="footer">
+                    <p:commandButton value="Login" update="messages" action="#{loginBean.login}"/>
+                                       <p:commandButton value="Annuler" type="reset"  />
+                </f:facet>
+            </h:panelGrid>
+      
+   
+    </cc:implementation>
+</html>

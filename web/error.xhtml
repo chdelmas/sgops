@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+     
+    <f:view contentType="text/html">  
+                <h:head>
+                     <Title>  </Title>
+          </h:head>
+      
+    <body>
+        <ui:composition template="./layout.xhtml"    > 
+             
+            <ui:define name="content"      >
+              <h:form id="formError"    >
+                 <p:growl id="messages" showDetail="true" life="3000"  rendered="true" sticky="true" /> 
+                <center style="align-content: center ">
+                <p:panel id="logbox" style="width: 400px;height: 300px;background-image:url(resources/common/images/bg/box2.png)"     >
+                   
+                       
+                        <p:ajaxStatus style="width:16px;height:16px;">  
+                 <f:facet name="start">  
+                     <h:graphicImage library="common" value="/images/ajaxloading.gif" />  
+                </f:facet>  
+              <f:facet name="complete">  
+                  <h:outputText value="" />  
+              </f:facet>  
+             </p:ajaxStatus> 
+              <div id="pic" align="center">
+                  <p:graphicImage style="width: 100px; height: 100px;"  library="common" name="/anim/genie.gif" />
+                   
+              </div>
+                    <table id="tb1">
+                        <tr>
+                            <td>
+                                  <h:outputText value="#{labels['accessTitle']}" styleClass="header"></h:outputText>
+                             </td>
+                        </tr>
+                        
+                         <tr>
+                            <td>
+                                   <h:outputText  value="#{labels['accessMSG1']}" />
+                             </td>
+                        </tr>
+                        
+                         <tr>
+                            <td>
+                                   <h:outputText  value="#{labels['accessMSG2']}" />
+                             </td>
+                        </tr>
+                        
+                        
+                    </table>     
+               
+               <div class="actionButtons">
+            
+                 <table>
+                   <th> 
+                       <p:commandButton value="#{labels['accessFailBtn']}"  update="messages"  action="#{menuHandle.quitter()}"  />
+                   </th>
+                     <th> <p:commandButton value="#{labels['forgotPassword']}"  action="#{menuHandle.sendMail()}"  /> </th>  
+                    </table>
+                </div>
+             </p:panel>
+                </center>
+                   </h:form>
+            </ui:define>
+       </ui:composition>
+
+    </body>
+     </f:view>
+</html>

@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Reacute;gistre des Prestataires</title>
+    </h:head>
+    
+    <h:body>
+       <h:form id="form" style=" width: 100%; height:400px;"> 
+         <p:growl id="messages" showDetail="true" life="3000"  />  
+         
+         <p:tabView id="tabView"  style="font-size: small;"  >
+           <p:tab  title="Prestataire Profile" >
+               <p:panel id="box"   style=" width: 1350px; height:400px; "     >  
+                 <h:panelGrid columns="2"   style=" width: 600px; height:200px; "  >   
+                  <p:panel id="p1">
+                    
+                      <h:panelGrid columns="2"   style=" width: 600px; height:200px; "  >  
+                   
+                    <h:outputLabel for="txtCodePres" value="Code Prestataire: *"/>
+                    <p:inputText id="txtCodePres" value="#" />  
+                    
+                    <h:outputLabel for="txtNIF" value="NIF : *"/>
+                    <p:inputMask id="txtNIF" value="# " mask="999-999-999-9"/>
+                     
+                    <h:outputLabel for="cboNationalite" value="Nationalite: *"/>
+                      <p:selectOneMenu id="cboNationalite" value="#" >
+                        <f:selectItems value="#"/>
+                      </p:selectOneMenu>
+                     
+                    <h:outputLabel for="txtDateConstitution" value="DateConstitution: *"/>
+                    <p:inputText id="txtDateConstitution" value="#" />
+                     
+                    <h:outputLabel for="txtAdresse" value="Adresse: *"/>
+                    <p:inputTextarea id="txtAdresse" value="#" />
+                    
+                     <h:outputLabel for="cboCommune" value="Commune : *"/>
+                     <p:selectOneMenu id="cboCommune" value="#" >
+                        <f:selectItems value="#"/>
+                    </p:selectOneMenu>
+                    
+                    <h:outputLabel for="txtMobileA" value="Mobile A : *"/>
+                    <p:inputText id="txtMobileA" value="#" />
+                    <h:outputLabel for="txtMobileB" value="Mobile B : *"/>
+                    <p:inputText id="txtMobileB" value="#" />
+                   
+                    <h:outputLabel for="txtWebsite" value="Web Site : *"/>
+                    <p:inputText id="txtWebsite" value="#"    />
+                    
+                    <h:outputLabel for="description" value="Description"/>
+                    <p:inputTextarea id="description" value="#" style="width: 100px" maxlength="255"/>
+                    
+                    <h:outputLabel for="commentaire" value="Commmentaire: "/>
+                    <p:inputTextarea  id="commentaire" value="#"  style="width: 100px" maxlength="255" />
+                    
+                    <h:outputLabel for="priorite" value="Priorite: "/>
+                    <p:spinner id="priorite" value="#"  style="width: 100px" maxlength="255" />
+                   
+                    </h:panelGrid>
+                 </p:panel>
+                  </h:panelGrid>
+                   
+               </p:panel>
+           </p:tab>
+             
+            <p:tab title="Mandataire">
+                <p:panel id="p2">
+                 <h:panelGrid columns="2"   style=" width: 600px; height:400px; "  >  
+                   
+                    <h:outputLabel for="txtmNom" value="Nom : *"/>
+                    <p:inputText id="txtmNom" value="#" />  
+                    
+                    <h:outputLabel for="txtmPrenom" value="Prénom: *"/>
+                    <p:inputText id="txtmPrenom" value="#" />  
+                    
+                    <h:outputLabel for="txtmNIF" value="NIF : *"/>
+                    <p:inputMask id="txtmNIF" value="# " mask="999-999-999-9"/>
+                  
+                       <!--  Télephone Mandataire -->
+                       
+                    <h:outputLabel for="txtmMobileAA" value="Mobile A : *"/>
+                    <p:inputText id="txtmMobileA" value="#" />
+                    <h:outputLabel for="txtmMobileBB" value="Mobile B : *"/>
+                    <p:inputText id="txtmMobileB" value="#" />
+                    
+                    <h:outputLabel for="txtmCourriel" value="Mobile B : *"/>
+                    <p:inputText id="txtmCourriel" value="#" />
+                    
+                    <h:outputLabel for="cbo_mNationalite" value="Nationalite: *"/>
+                      <p:selectOneMenu id="cbo_mNationalite" value="#" >
+                        <f:selectItems value="#"/>
+                      </p:selectOneMenu>
+                  
+                    <h:outputLabel for="txtDateConstitution" value="DateConstitution: *"/>
+                    <p:inputText id="txtmDateConstitution" value="#" />
+                    
+                </h:panelGrid>
+                </p:panel>
+            </p:tab>
+             
+            <p:tab title="Ressources Financiere">
+                <p:panel id="p3">
+                  <h:panelGrid columns="2"   style=" width: 600px; height:400px; "  >  
+                   
+                    <h:outputLabel for="txtResNom" value="Ressource Name : *"/>
+                    <p:inputText id="txtResNom" value="#" />  
+                    
+                    <h:outputLabel for="cbo_ResType" value="Ressource Type: *"/>
+                    <p:selectOneMenu id="cbo_ResType" value="#" >
+                        <f:selectItems value="#"/>
+                      </p:selectOneMenu>
+                    
+                    <h:outputLabel for="txtDebutAnnee" value="Anne(####) : *"/>
+                    <p:inputMask id="txtDebutAnnee" value="#" mask="9999"/>
+                    
+                    <h:outputLabel for="txtFinAnnee" value="Anne(####) : *"/>
+                    <p:inputMask id="txtFinAnnee" value="# " mask="9999"/>
+                    
+                  </h:panelGrid>
+                </p:panel>
+            </p:tab> 
+             
+            <p:tab title="Ressources Humaines">
+                <p:panel id="p4"></p:panel>
+            </p:tab>> 
+           
+            <p:tab title="Ressources Matériels">
+                <p:panel id="p5"></p:panel>
+            </p:tab>> 
+      </p:tabView>      
+                        
+                  
+             </h:form>      
+             
+    </h:body>
+</html>
+

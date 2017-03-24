@@ -1,0 +1,27 @@
+/* 
+    Document   : main
+    Created on : Oct 10, 2012, 4:12:49 PM
+    Author     : chdelmas
+    Description:
+        Purpose of the stylesheet follows.
+*/
+@CHARSET "ISO-8859-1";
+ 
+.body {
+    font-family: verdana;
+}
+.errorMessage{
+    color:red;
+}
+ 
+.infoMessage{
+    color:blue;
+}
+ 
+.warnMessage{
+    color:orange;
+}
+ 
+.header{
+    font-size:32px
+}

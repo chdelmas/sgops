@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./../loginTemplate.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+  
+
+    <ui:define name="content">
+          <h:form id="formForget"    >
+                 <p:growl id="messages" showDetail="true" life="3000"  rendered="true" sticky="true" /> 
+                <center style="align-content: center ">
+                <p:panel id="logbox" style="width: 400px;height: 300px;background-image:url(resources/common/images/bg/box2.png)"     >
+                     <p:ajaxStatus style="width:16px;height:16px;">  
+                 <f:facet name="start">  
+                     <h:graphicImage library="common" value="/images/ajaxloading.gif" />  
+                </f:facet>  
+              <f:facet name="complete">  
+                  <h:outputText value="" />  
+              </f:facet>  
+             </p:ajaxStatus> 
+              <div id="pic" align="center">
+                  <p:graphicImage style="width: 100px; height: 100px;"  library="common" name="/logo/login.png" />
+                  <!--
+                <p:graphicImage library="common" name="/images/login.png" />
+                  -->
+              </div>
+              <h:panelGrid columns="2"  width="300"   >
+                
+                <h:outputLabel for="email" value="#{labels['email']}: *" />
+                <p:inputText  value="#{alertLogin.email}" type="email"  id="email" required="true">
+                    <f:validator id="courriel"  validatorId="emailValidator" />
+                </p:inputText>
+                <h:outputLabel for="phone" value="#{labels['phone']}: * " />
+                <h:inputText  value="#{alertLogin.phone}"   id="phone" required="true"     />
+                <h:outputLabel for="captcha" value="#{labels['captcha']}: *" />
+                <p:captcha  id="captcha" required="true" language="fr" />
+            </h:panelGrid>
+               <div class="actionButtons">
+            
+                 <table>
+                   <th> 
+                       <p:commandButton value="#{labels['login']}"  update=":formForget:messages"  action="#{alertLogin.sendEmailRequest}"  />
+                   </th>
+                     <th> 
+                       <p:commandButton value="#{labels['accessFailBtn']}"  update=":formForget:messages"  action="#{alertLogin.logout()}"  />
+                   </th>
+                    </table>
+                </div>
+             </p:panel>
+                </center>
+                   </h:form>
+    </ui:define>
+
+  
+
+</ui:composition>

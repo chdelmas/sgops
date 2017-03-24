@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Objet </title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+        <h:form id="form"   style=" width: 100%; height:400px; "   >
+                  <p:growl id="messages" showDetail="true" life="3000" sticky="true" />  
+                  
+                  <p:dataTable id="tbl" var="o" value="#{objetGPSBean.listObjetGPS}"
+                               rowKey="#{o.objetID}" 
+                          paginator="true"
+                          rendered="true"
+                          selectionMode="single" 
+                          style="font-size: small" 
+                          rows="6" 
+                          emptyMessage="Donnée non disponible"  >
+                           <p:ajax event="rowSelect" listener="#{o.onRowSelect}" />  
+       
+        <p:column headerText="Code Objet">
+            <h:outputText value="#{o.objetID}"/>
+        </p:column>
+
+        <p:column headerText="Nom">
+            <h:outputText value="#{o.name}" />
+        </p:column>
+
+        <p:column headerText="Latitude" style="width: auto;">
+            <h:outputText value="#{o.latitude}" />
+        </p:column>
+
+        <p:column headerText="Longitude" style="width: auto;">
+            <h:outputText value="#{o.longitude}" />
+        </p:column>
+        <p:column headerText="Altitude" style="width: auto;" >
+            <h:outputText value="#{o.altitude}" />
+        </p:column>   
+                       
+    </p:dataTable>   
+    <h:panelGrid columns="2">
+	<p:panel header="Export All Data">
+		<h:commandLink>
+			<p:graphicImage value="/images/excel.png" />
+			<p:dataExporter type="xls" target="tbl" fileName="cars" />
+		</h:commandLink>
+        	<h:commandLink>
+			<p:graphicImage value="/images/pdf.png" />
+			<p:dataExporter type="pdf" target="tbl" fileName="cars"/>
+		</h:commandLink>
+		
+		<h:commandLink>
+			<p:graphicImage value="/images/csv.png" />
+			<p:dataExporter type="csv" target="tbl" fileName="cars" />
+		</h:commandLink>
+		
+		<h:commandLink>
+			<p:graphicImage value="/images/xml.png" />
+			<p:dataExporter type="xml" target="tbl" fileName="cars" />
+		</h:commandLink>
+	</p:panel>
+	
+	<p:panel header="Export Page Data">
+		<h:commandLink>
+			<p:graphicImage value="/images/excel.png" />
+			<p:dataExporter type="xls" target="tbl" fileName="cars" pageOnly="true"/>
+		</h:commandLink>
+
+		<h:commandLink>
+			<p:graphicImage value="/images/pdf.png" />
+			<p:dataExporter type="pdf" target="tbl" fileName="cars" pageOnly="true"/>
+		</h:commandLink>
+		
+		<h:commandLink>
+			<p:graphicImage value="/images/csv.png" />
+			<p:dataExporter type="csv" target="tbl" fileName="cars" pageOnly="true"/>
+		</h:commandLink>
+		
+		<h:commandLink>
+			<p:graphicImage value="/images/xml.png" />
+			<p:dataExporter type="xml" target="tbl" fileName="cars" pageOnly="true"/>
+		</h:commandLink>
+	</p:panel>
+    </h:panelGrid>  
+                         
+   
+            
+            </h:form>       
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Utilisateurs</title>
+    </h:head>
+    <h:body>
+         <ui:composition> 
+             <h:form id="formUCreate">
+                <p:growl id="messages" showDetail="true" life="3000"  />  
+                   <p:panel id="reg" header="Formulaire de régistre d'utilisateur" style=" margin: auto;font-size: small;  " >
+                      <h:panelGrid columns="3" width="65%"  >
+                        <h:outputLabel for="username" value="Utilisateur :*" />
+                        <p:inputText  value="#{uSaveBean.selectedUtilisateur.username}"  id="username"    style=" width: 200px;"  />
+                        <h:message for="username" />
+                <h:outputLabel for="password" style="width: 20px;" value="Mot de passe} : * " />
+                <h:inputSecret value="#{uSaveBean.selectedUtilisateur.password}"  binding="#{passwordComponent}" id="password"  style=" width:200px;"  required="true" />
+                 <h:message for="password" />
+                <h:outputLabel for="confirmPass" value="Confirmer Mot de passe : * " />
+                <h:inputSecret value="#{uSaveBean.selectedUtilisateur.confirmPassword}"  id="confirmPass"   required="#{not empty passwordComponent.value}" style=" width: 200px;"  >
+                   <f:validator validatorId="confirmPasswordValidator" />
+                   <f:attribute name="passwordComponent" value="#{passwordComponent}" />
+                </h:inputSecret>
+                <h:message for="confirmPass" />
+                <h:outputLabel for="courriel" value="Courriel : " />
+                <p:inputText  value="#{uSaveBean.selectedUtilisateur.email}"  id="courriel"   style=" width: 250px;" validator="#{emailValidator.validate}" />
+                    
+               <h:message for="courriel" />
+                 <h:outputLabel for="organisme" value="Organisme: *" />
+                 <p:selectOneMenu id="organismeid" value="#{utilisateurBean.selectedUtilisateur.organismeId}"  required="true"  style=" width: 250px;"   >
+                     <f:selectItems value="#{organismeBean.organismeItems}" noSelectionValue="true"  />
+                    <f:ajax render="@this"  />
+                </p:selectOneMenu>
+           </h:panelGrid>
+                       
+                 <p:panel id="chk" header="Privilèges" style=" text-align: left;font-size: small ">
+                    <h:panelGrid columns="4"  width="60%">
+                <h:outputLabel for="consultation">Consultation</h:outputLabel>
+                <h:selectBooleanCheckbox id="consultation"  value="#{utilisateurBean.consultation}"  />     
+                <h:outputLabel for="analyse">Analyse</h:outputLabel>
+                <h:selectBooleanCheckbox id="analyse"  value="#{utilisateurBean.analyse}" />     
+                <h:outputLabel for="saisie">Saisie</h:outputLabel>
+                <h:selectBooleanCheckbox id="saisie"  value="#{utilisateurBean.saisie}"  />     
+                 <h:outputLabel for="parametre">Paramètre</h:outputLabel>
+                 <h:selectBooleanCheckbox id="parametre"  value="#{utilisateurBean.parametres}"  />    
+                 <h:outputLabel for="option">Animateur</h:outputLabel>
+                 <h:selectBooleanCheckbox id="Option"  value="#{utilisateurBean.encrypter}"  /> 
+                <h:outputLabel for="active">Active</h:outputLabel>
+                <h:selectBooleanCheckbox id="active"  value="#{utilisateurBean.active}"  />     
+                </h:panelGrid>
+                </p:panel>
+         
+                       <f:facet name="footer"  >  
+                        
+                         <table>
+                         <th>
+                             <p:commandButton value="reset"  action="#{utilisateurBean.reset}" label="Reset" icon="ui-icon-reset" type="reset"  immediate="true" update="@form" >
+                             </p:commandButton>
+                          </th>   
+                        <th> 
+                            <p:commandButton onclick="confirmation.show()" value="#{labels['submit']}" icon="ui-icon-check"    action="#{uSaveBean.save}" update=":formUCreate:messages"  />
+                        
+                        
+                        </th>
+                        
+                        
+                    </table>
+                        </f:facet>  
+                       
+                       
+                </p:panel>
+                    
+
+     
+	 
+             </h:form>    
+             
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/web/includes/login.xhtml</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/src/java/ht/gouv/faes/sgops/bean/PrestataireBean.java</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/web/app.xhtml</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/web/includes/opsParDate.xhtml</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/web/app/app_dataManager.xhtml</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/web/includes/userCreate.xhtml</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/src/java/app/test/DemoUsers.java</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/src/java/app/util/LocalDateConverter.java</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/web/emailSend.xhtml</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/src/java/app/test/Demo.java</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/src/java/app/util/ReportsBean.java</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/src/java/app/util/DateUtils.java</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/web/includes/footer.xhtml</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/web/includes/header.xhtml</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/web/app/app_Prestataire.xhtml</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/src/java/app/util/ReportConfigUtil.java</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/web/includes/opsManager.xhtml</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/src/java/ht/gouv/faes/sgops/bean/authenticate/LoginBean.java</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/src/java/ht/gouv/faes/sops/export/ExporterFactory.java</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/src/java/app/util/AbstractReportBean.java</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/src/java/ht/gouv/faes/sgops/bean/PrintSolve.java</file>
+            <file>file:/Users/chdelmas/NetBeansProjects/sgops/src/java/app/test/TestDate.java</file>
+        </group>
+    </open-files>
+</project-private>

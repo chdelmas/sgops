@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="registerForm">
+<div class="pageTitle"><h:outputText value="#{userBean.registration}"/></div>
+<br/>
+<div class="center">
+<h:panelGrid columns="2"  
+  styleClass="form" 
+  headerClass="tableHeader"
+  footerClass="tableFooter"
+  rowClasses="tableRowOdd, tableRowEven">
+  <f:facet name="header">
+    <h:outputFormat value="#{userBean.registrationBoxTitle}">
+      <f:param value="*"/>
+    </h:outputFormat>
+  </f:facet>
+  
+  <f:facet name="footer">
+    <h:panelGroup>
+    <h:commandButton value="#{userBean.submit}" 
+      action="#{registrationBean.register}" />
+    <h:commandButton value="#{userBean.reset}" type="reset"/>
+    </h:panelGroup>
+  </f:facet>
+    
+  <h:outputLabel for="title" value="#{userBean.registrationTitle}"/>
+  <h:panelGroup>
+  <h:inputText id="title" value="#{registrationBean.person.title}"
+    maxlength="45" size="10"/><f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="title" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="firstName" value="#{userBean.registrationName}"/>
+  <h:panelGroup>
+  <h:inputText id="firstName" value="#{registrationBean.person.firstName}"
+    maxlength="255" size="30"/><f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="firstName" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="lastName" value="#{userBean.registrationSurname}"/>
+  <h:panelGroup>
+  <h:inputText id="lastName" value="#{registrationBean.person.lastName}"
+    maxlength="255" size="30"/><f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="lastName" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="suffix" value="#{userBean.registrationSuffix}"/>
+  <h:panelGroup>
+  <h:inputText id="suffix" value="#{registrationBean.person.suffix}"
+    maxlength="45" size="15"/><f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="suffix" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="dateOfBirth" value="#{userBean.registrationDateOfBirth}"/>
+  <h:panelGroup>
+  <h:inputText id="dateOfBirth" value="#{registrationBean.person.dateOfBirth}">
+    <f:convertDateTime pattern="dd/MM/yyyy"/>
+  </h:inputText>  <f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="dateOfBirth" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="gender" value="#{userBean.registrationGender}"/>
+  <h:selectOneRadio id="gender" value="#{registrationBean.person.gender}">  
+    <f:selectItems value="#{registrationBean.genders}"/>  
+  </h:selectOneRadio>
+  
+  <h:outputLabel for="maritalStatus" value="#{userBean.registrationMaritalStatus}"/>
+  <h:selectOneRadio id="maritalStatus" value="#{registrationBean.person.maritalStatus}">  
+    <f:selectItems value="#{registrationBean.maritalStati}"/>  
+  </h:selectOneRadio>
+  
+  <h:outputLabel for="line1" value="#{userBean.registrationAddress1}"/>
+  <h:panelGroup>
+  <h:inputText id="line1" value="#{registrationBean.person.address.line1}"
+    maxlength="255" size="50"/>  <f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="line1" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="line2" value="#{userBean.registrationAddress2}"/>
+  <h:panelGroup>
+  <h:inputText id="line2" value="#{registrationBean.person.address.line2}"
+    maxlength="255" size="50"/>  <f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="line2" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="line3" value="#{userBean.registrationAddress3}"/>
+  <h:panelGroup>
+  <h:inputText id="line3" value="#{registrationBean.person.address.line3}"
+    maxlength="255" size="50"/>  <f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="line3" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="line4" value="#{userBean.registrationAddress4}"/>
+  <h:panelGroup>
+  <h:inputText id="line4" value="#{registrationBean.person.address.line4}"
+    maxlength="255" size="50"/><f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="line4" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="postcode" value="#{userBean.registrationPostcode}"/>
+  <h:panelGroup>
+  <h:inputText id="postcode" value="#{registrationBean.person.address.postcode}"
+    maxlength="50" size="20"/><f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="postcode" styleClass="formUserError"/>  
+  </h:panelGroup>
+  
+  <h:outputLabel for="country" value="#{userBean.registrationCountry}"/>
+  <h:panelGroup>
+  <h:inputText id="country" value="#{registrationBean.person.address.country}"
+    maxlength="150" size="40"/><f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="country" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="daytimePhone" value="#{userBean.registrationPhoneDay}"/>
+  <h:panelGroup>
+  <h:inputText id="daytimePhone" value="#{registrationBean.person.daytimePhone}"
+    maxlength="45" size="12"/><f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="daytimePhone" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="eveningPhone" value="#{userBean.registrationPhoneEvening}"/>
+  <h:panelGroup>
+  <h:inputText id="eveningPhone" value="#{registrationBean.person.eveningPhone}"
+    maxlength="45" size="12"/><f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="eveningPhone" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="email" value="*#{userBean.registrationEmail}"/>
+  <h:panelGroup>
+  <h:inputText id="email" value="#{registrationBean.person.email}" 
+    maxlength="255" size="50" 
+    required="true">
+      <f:validator validatorId="EmailValidator"/>
+  </h:inputText><f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="email" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="emailConfirm" value="*#{userBean.registrationEmailConfirm}"/>
+  <h:panelGroup>
+  <h:inputText id="emailConfirm" value="#{registrationBean.emailConfirm}" 
+    maxlength="255" size="50" 
+    required="true"/><f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="emailConfirm" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="password" value="*#{userBean.registrationPassword}"/>
+  <h:panelGroup>
+  <h:inputSecret id="password" value="#{registrationBean.person.password}" 
+    maxlength="64" size="20" 
+    required="true" redisplay="true">
+      <f:validateLength minimum="6"/>
+  </h:inputSecret><f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="password" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="passwordConfirm" value="*#{userBean.registrationPasswordConfirm}"/>
+  <h:panelGroup>
+  <h:inputSecret id="passwordConfirm" value="#{registrationBean.passwordConfirm}" 
+    maxlength="64" size="20" 
+    required="true" redisplay="true"/><f:verbatim><br/></f:verbatim>
+  <h:outputText value=" "/><h:message for="passwordConfirm" styleClass="formUserError"/>
+  </h:panelGroup>
+  
+  <h:outputLabel for="webSite" value="#{userBean.registrationWeb}"/>
+  <h:panelGroup>
+  <h:inputText id="webSite" value="#{registrationBean.person.webSite}"
+    maxlength="255" size="50"/><f:verbatim><br/></f:verbatim>
+    <h:outputText value=" "/><h:message for="webSite" styleClass="formUserError"/>
+  </h:panelGroup>
+    
+</h:panelGrid>
+</div>
+</h:form>
+    </h:body>
+</html>
+

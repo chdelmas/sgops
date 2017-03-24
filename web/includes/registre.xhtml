@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Régistre Prestataire </title>
+       
+    </h:head>
+    <h:body>
+        <ui:composition> 
+           <h:form id="form" style=" width: 100%; height:400px;"> 
+            <p:growl id="messages" showDetail="true" life="3000"  />  
+        <p:tabView id="tabView"  style="font-size: small;"  >
+           <p:tab  title="Profile">
+               <p:panel id="box"   style=" width: 1350px; height:400px; "     >  
+                 <h:panelGrid columns="2" width="50%" style=" width: 600px; height:200px; "  >   
+                  <p:panel id="p1">
+                    <h:panelGrid columns="2" width="50%" style=" width: 600px; height:200px; "  >  
+                    <h:outputLabel for="txtCodePres" value="Code Prestataire: *"/>
+                    <p:inputText id="txtCpdePres" value="#" />  
+                    
+                    <h:outputLabel for="txtNIF" value="NIF : *"/>
+                    <p:inputText id="txtNIF" value="#" />  
+                    <!--     
+                    <h:outputLabel for="txtCodeBureau" value="NIF"/>
+                    
+                   
+                    <p:selectOneMenu id="cboBureau" value="" >
+                        <f:selectItems value=""/>
+                    </p:selectOneMenu>
+                   
+                    <h:outputLabel for="txtCodeFontaine" value="Code_Fontaine:"/>
+                    <p:selectOneMenu id="cboFontaine" value="#" >
+                        <f:selectItems value="#"/>
+                    </p:selectOneMenu>
+                     -->
+                     
+                     <h:outputLabel for="cboNationalite" value="Nationalite: *"/>
+                      <p:selectOneMenu id="cboNationalite" value="#" >
+                        <f:selectItems value="#"/>
+                    </p:selectOneMenu>
+                    
+                     <h:outputLabel for="txtAdresse" value="Adresse: *"/>
+                    <p:inputText id="txtAdresse" value="#" />
+                    
+                    
+                    <h:outputLabel for="cboCommune" value="Commune : *"/>
+                     <p:selectOneMenu id="cboCommune" value="#" >
+                        <f:selectItems value="#"/>
+                    </p:selectOneMenu>
+                    
+                    <h:outputLabel for="txtMobile" value="Mobile : *"/>
+                    <p:inputText id="txtMobile" value="#" />
+                   
+                    <h:outputLabel for="txtWebsite" value="Web Site : *"/>
+                    <p:inputText id="txtWebsite" value="#" />
+                    
+                    <h:outputLabel for="description" value="Description"/>
+                    <p:inputTextarea id="description" value="#" style="width: 250px" maxlength="255"/>
+                    <h:outputLabel for="commentaire" value="Commmentaire: "/>
+                    <p:inputTextarea  id="commentaire" value="#"  style="width: 250px" maxlength="255" />
+                    <h:outputLabel for="priorite" value="Priorite: "/>
+                    <p:spinner id="priorite" value="#"  style="width: 250px" maxlength="255" />
+                   </h:panelGrid>
+                 </p:panel>
+                     
+                     
+                 </h:panelGrid>
+               </p:panel>
+           </p:tab>    
+      </p:tabView>      
+                        
+                  
+             </h:form>      
+             
+        </ui:composition>
+    </h:body>
+</html>
+

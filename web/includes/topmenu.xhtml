@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form id="main_menu">
+                <p:menubar  style=" font-size: small; ">
+                      <p:submenu label="Source" >
+                            <p:submenu label="Enregistrement" >
+                                <p:menuitem value="Saisie" action="#"     icon="ui-icon-arrowreturnthick-1-w"  ></p:menuitem>
+                                <p:menuitem value="Lister" url="#{menuHandle.opsManager()}"    icon="ui-icon-arrowreturnthick-1-w"  ></p:menuitem>
+                              </p:submenu>
+                        </p:submenu>
+                        <p:submenu label="Collecte" >
+                            <p:menuitem value="Ouverture" action="#" icon="ui-icon-arrowreturnthick-1-w"  ></p:menuitem>
+                            <p:menuitem value="Assignation" action="#" icon="ui-icon-arrowreturnthick-1-w"  ></p:menuitem>
+                           
+                        </p:submenu>
+                         <p:submenu label="Tableau de Bord" >
+                             <p:menuitem value="Visualister" action="#" icon="ui-icon-arrowreturnthick-1-w"  ></p:menuitem>
+                             <p:menuitem value="MindMap ONG" action="#" icon="ui-icon-arrowreturnthick-1-w"  ></p:menuitem>
+                        </p:submenu>
+                       <p:submenu label="G&eacute;ospatiale" >
+                             <p:menuitem value="Cartographie" action="#" icon="ui-icon-arrowreturnthick-1-w"  ></p:menuitem>
+                       </p:submenu>
+                      
+                        <p:submenu label="Administration" >
+                            <p:submenu label="Gestion Utilisateurs">
+                                <p:menuitem value="Saisie" action="#" icon="ui-icon-arrowreturnthick-1-w"  ></p:menuitem>
+                                <p:menuitem value="Lister / Editer" action="#" icon="ui-icon-arrowreturnthick-1-w"  ></p:menuitem>
+                             </p:submenu>
+                            <p:submenu label="Parame&egrave;tres">
+                               <p:menuitem value="Organisme Type" action="#" icon="ui-icon-arrowreturnthick-1-w"  ></p:menuitem>
+                               <p:menuitem value="GPS Type" action="#" icon="ui-icon-arrowreturnthick-1-w"  ></p:menuitem>
+                         </p:submenu>
+                        
+                        </p:submenu>
+                        
+                        <p:submenu label="Collaborateurs">
+                           <p:submenu label="GPS">
+                               <p:menuitem value="Couche" action="#" icon="ui-icon-arrowreturnthick-1-w"  ></p:menuitem>
+                               <p:menuitem value="Donn&eacute;es" action="#" icon="ui-icon-arrowreturnthick-1-w"  ></p:menuitem>
+                         </p:submenu>
+                       </p:submenu>
+              
+                        <p:submenu label="Help" icon="ui-icon-help">
+                            <p:menuitem value="Contents" url="#" />
+                            <p:submenu label="Search" icon="ui-icon-search">
+                                <p:submenu label="Text">
+                                    <p:menuitem value="Workspace" url="#" />
+                                </p:submenu>
+                                <p:menuitem value="File" url="#" />
+                            </p:submenu>
+                            <p:submenu label="Mot de passe" >
+                                <p:menuitem value="changer" url="#"     />
+                            </p:submenu>
+                        </p:submenu>
+             </p:menubar>
+                    
+         </h:form>
+       </ui:composition>
+    </h:body>
+</html>
+

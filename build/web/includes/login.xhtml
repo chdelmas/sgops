@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./../loginTemplate.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+  
+
+    <ui:define name="content">
+         <h:form id="logonForm">
+                <p:growl id="messages" showDetail="true" life="3000" sticky="true" />  
+          <p:ajaxStatus style="width:16px;height:16px;">  
+                 <f:facet name="start">  
+                     <h:graphicImage library="common" value="/images/ajaxloading.gif" />  
+                </f:facet>  
+              <f:facet name="complete">  
+                  <h:outputText value="" />  
+              </f:facet>  
+             </p:ajaxStatus> 
+              <p:commandLink id="loginLink" actionListener="#" title="Login" >
+                  <p:graphicImage library="common" name="/images/login.png" />
+              </p:commandLink>
+                <h:panelGrid columns="2" cellpadding="5" styleClass="loginbng">
+                <h:outputLabel for="username" value="Username: *" />
+                <p:inputText  value="#{loginBean.username}" style=" width: 150px;"  id="username" required="true" label="username" />
+                <h:outputLabel for="password" value="Password: * " />
+                <h:inputSecret value="#{loginBean.password}" style=" width: 150px;" id="password" required="true" label="password" />
+                <f:facet name="footer">
+                    <p:commandButton value="Login" update=":logonForm:messages" action="#{loginBean.login}"/>
+                                       <p:commandButton value="Annuler" type="reset"  />
+                </f:facet>
+            </h:panelGrid>
+      
+        </h:form>
+
+    </ui:define>
+
+  
+
+</ui:composition>

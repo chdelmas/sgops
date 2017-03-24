@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Registre Prestataire </title>
+       
+    </h:head>
+    <h:body>
+        <ui:composition> 
+           <h:form id="form" style=" width: 100%; height:400px;"> 
+            <p:growl id="messages" showDetail="true" life="3000"  />  
+        <p:tabView id="tabView"  style="font-size: small;"  >
+           <p:tab  title="Saisie">
+               <p:panel id="box"   style=" width: 1350px; height:400px; "     >  
+                 <h:panelGrid columns="2" width="50%" style=" width: 600px; height:200px; "  >   
+                  <p:panel id="p1">
+                    <h:panelGrid columns="2" width="50%" style=" width: 600px; height:200px; "  >            
+                    <h:outputLabel for="txtCodeBureau" value="Code Bureau:"/>
+                    <p:selectOneMenu id="cboBureau" value="#" >
+                        <f:selectItems value=""/>
+                    </p:selectOneMenu>
+                    <h:outputLabel for="txtCodeFontaine" value="Code_Fontaine:"/>
+                    <p:selectOneMenu id="cboFontaine" value="#" >
+                        <f:selectItems value="#{assignationBean.bureauxItems}"/>
+                    </p:selectOneMenu>
+                    <h:outputLabel for="txtCompteurLecture" value="Compteur Lecture: *"/>
+                    <p:inputText id="txtCompteurLecture" value="#" />
+                    <h:outputLabel for="txtLectureDate" value="Lecture Date: *"/>
+                    <p:inputText id="txtLectureDate" value="#" />
+                    <h:outputLabel for="txtVente" value="Vente réelle : *"/>
+                    <p:inputText id="txtVente" value="#" />
+                    <h:outputLabel for="stockage" value="Stockage: *"/>
+                    <p:inputText id="stockage" value="#" />
+                    <h:outputLabel for="description" value="Description"/>
+                    <p:inputTextarea id="description" value="#" style="width: 250px" maxlength="255"/>
+                    <h:outputLabel for="commentaire" value="Commmentaire: "/>
+                    <p:inputTextarea  id="commentaire" value="#"  style="width: 250px" maxlength="255" />
+                    <h:outputLabel for="priorite" value="Priorite: "/>
+                    <p:spinner id="priorite" value="#"  style="width: 250px" maxlength="255" />
+                   </h:panelGrid>
+                 </p:panel>
+                     <p:panel id="p2">
+                          <h:panelGrid columns="2" width="50%" style=" width: 600px; height:200px; "  >  
+                               <h:outputLabel for="cboBureau1" value="Code Bureau:"/>
+                   <p:selectOneMenu id="cboBureau1" value="#" >
+                        <f:selectItems value="#{assignationBean.bureauxItems}"/>
+                    </p:selectOneMenu>
+                    
+                    <h:outputLabel for="txtCodeFontaine1" value="Code_Fontaine:"/>
+                    <p:selectOneMenu id="cboFontaine1" value="#" >
+                        <f:selectItems value="#{assignationBean.bureauxItems}"/>
+                    </p:selectOneMenu>
+                    <h:outputLabel for="txtCompteurLecture1" value="Compteur Lecture: *"/>
+                    <p:inputText id="txtCompteurLecture1" value="#" />
+                    <h:outputLabel for="txtLectureDate1" value="Lecture Date: *"/>
+                    <p:inputText id="txtLectureDate1" value="#" />
+                    <h:outputLabel for="txtVente1" value="Vente réelle : *"/>
+                    <p:inputText id="txtVente1" value="#" />
+                    <h:outputLabel for="stockage1" value="Stockage: *"/>
+                    <p:inputText id="stockage1" value="#" />
+                    <h:outputLabel for="description1" value="Description"/>
+                    <p:inputTextarea id="description1" value="#" style="width: 250px" maxlength="255"/>
+                    <h:outputLabel for="commentaire1" value="Commmentaire: "/>
+                    <p:inputTextarea  id="commentaire1" value="#"  style="width: 250px" maxlength="255" />
+                    <h:outputLabel for="priorite1" value="Priorite: "/>
+                    <p:spinner id="priorite1" value="#"  style="width: 250px" maxlength="255" />
+                      
+                              
+                              
+                          </h:panelGrid>    
+                         
+                     </p:panel>
+                 </h:panelGrid>
+               </p:panel>
+           </p:tab>    
+      </p:tabView>      
+                        
+                  
+             </h:form>      
+             
+        </ui:composition>
+    </h:body>
+</html>
+

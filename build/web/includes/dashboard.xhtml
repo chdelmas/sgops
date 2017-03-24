@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core">
+   
+    <f:view contentType="text/html">  
+    <h:head>
+        <title>Tableau de Bord</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form id="myboard">
+             <p:growl id="messages" showDetail="true" /> 
+            <p:dashboard id="board" model="#{dashboardBean.model}" style="font-size: small; height:70% px; " >
+            <p:ajax event="reorder" listener="#{dashboardBean.handleReorder(event)}" update="messages" />
+
+        <p:panel id="Fournisseurs" header="Fournisseurs" style="width: 300px; height: 200px;" closable="true" toggleable="true">
+          
+            <p:chart style="width: 300px; height: 200px;" type="bubble" model="#{chartBean.bubbleModel}" id="chart1" widgetVar="chart1" />
+   
+        
+       </p:panel>
+
+         <p:panel id="Collaborateurs" header="Collaborateurs" style="width: 300px; height: 200px;" >
+             
+             <p:chart style="width: 300px; height: 200px;" type="pie" model="#{chartBean.pieModel}" id="chart2" widgetVar="chart2" />
+   
+            
+        </p:panel>
+
+        <p:panel id="Firmes" header="Firmes" style="width: 300px; height: 200px;" >
+              
+            <p:chart style="width: 300px; height: 200px;" type="pie" model="#{chartBean.livePieModel}" id="chart3" widgetVar="chart3" />
+            
+        </p:panel>
+
+        <p:panel id="Consultants" header="Consultants" style="width: 300px; height: 200px;">
+             
+            <p:chart style="width: 300px; height: 200px;" type="donut" model="#{chartBean.donutModel}" id="chart4" widgetVar="chart4" />
+   
+    </p:panel>
+ 
+    </p:dashboard>
+            </h:form>
+          
+          
+        </ui:composition>
+            
+            
+            
+    </h:body>
+    </f:view>
+</html>
+
